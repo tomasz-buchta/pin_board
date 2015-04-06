@@ -1,16 +1,9 @@
-= form_for @pin do |f|
+= simple_form_for(@pin,html: {class: 'form-horizontal'}) do |f|
   - if @pin.errors.any?
     #error_explanation
       %h2= "#{pluralize(@pin.errors.count, "error")} prohibited this pin from being saved:"
       %ul
         - @pin.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :description
-    = f.text_area :description
-  .actions
-    = f.submit 'Save'
+  =f.input :title
+  =f.input :description
