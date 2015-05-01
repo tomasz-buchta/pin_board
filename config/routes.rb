@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :boards
+
   root 'pins#index'
   resources :pins
 
