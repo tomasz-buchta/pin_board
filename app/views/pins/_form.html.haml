@@ -5,6 +5,7 @@
       %ul
         - @pin.errors.full_messages.each do |msg|
           %li= msg
+  =f.association :board
   =f.input :title
   =f.input :description
   =f.input :image, as: :file
