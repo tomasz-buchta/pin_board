@@ -23,13 +23,13 @@ RSpec.describe PinsController, :type => :controller do
   # This should return the minimal set of attributes required to create a valid
   # Pin. As you add validations to Pin, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    FactoryGirl.attributes_for(:pin)
-  }
-
+  # let(:valid_attributes) {
+  #   FactoryGirl.attributes_for(:pin)
+  # }
   let(:invalid_attributes) {
     FactoryGirl.attributes_for(:pin,:without_title)
   }
+  let!(:valid_attributes) {FactoryGirl.attributes_for(:pin)}
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -68,7 +68,7 @@ RSpec.describe PinsController, :type => :controller do
   end
 
   describe "POST create" do
-    describe "with valid params" do
+    pending "with valid params" do
       it "creates a new Pin" do
         expect {
           post :create, {:pin => valid_attributes}, valid_session

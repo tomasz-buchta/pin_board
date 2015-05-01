@@ -16,6 +16,7 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'bootstrap-generators', '~> 3.3.1'
 gem 'simple_form'
+gem 'paperclip'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -34,9 +35,11 @@ group :test do
 end
 
 group :development, :test do
+  gem 'pry-rails'
   gem 'factory_girl'
   gem 'factory_girl_rails'
   gem 'rspec'
+  gem 'shoulda'
   gem 'rspec-rails'
   gem 'rspec-expectations'
   gem 'byebug'

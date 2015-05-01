@@ -3,6 +3,7 @@
 -@pins.each do |p|
   .pin
     .title=p.title
+    .image=image_tag p.image
     .description=p.description
 
 = link_to 'New Pin', new_pin_path
