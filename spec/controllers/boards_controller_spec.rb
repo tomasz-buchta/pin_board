@@ -130,6 +130,21 @@ RSpec.describe BoardsController, :type => :controller do
       delete :destroy, {:id => board.to_param}, valid_session
       expect(response).to redirect_to(boards_url)
     end
+
+    context 'with pins' do
+      let!(:board) {FactoryGirl.create(:board_with_pins)}
+      it 'deletes the board' do
+        expect {
+          delete :destroy, {id: board.to_param}, valid_session
+        }.to change(Board,:count).by(-1)
+      end
+      it 'deletes associated pins' do
+        expect {
+          delete :destroy, {id: board.to_param}, valid_session
+        }.to change(Pin,:count).by(-5)
+      end
+    end
+
   end
 
 end
