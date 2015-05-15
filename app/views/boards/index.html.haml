@@ -17,7 +17,7 @@
     %tbody
       - @boards.each do |board|
         %tr
-          %td= board.title
+          %td= link_to board.title,board_pins_path(board.id)
           %td= board.desription
           %td= link_to 'Show', board
           %td= link_to 'Edit', edit_board_path(board)
