@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :pin do
+    association :board, factory: :board, strategy: :create
     title "MyString"
     description "MyText"
     image_file_name {'test.png'}
