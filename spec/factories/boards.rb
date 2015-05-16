@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :board do
     title "MyString"
-desription "MyString"
+description "MyString"
     factory :board_with_pins do
       after(:create) do |board|
         5.times do

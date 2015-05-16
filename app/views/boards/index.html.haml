@@ -9,7 +9,7 @@
     %thead
       %tr
         %th Title
-        %th Desription
+        %th description
         %th
         %th
         %th
@@ -18,7 +18,7 @@
       - @boards.each do |board|
         %tr
           %td= link_to board.title,board_pins_path(board.id)
-          %td= board.desription
+          %td= board.description
           %td= link_to 'Show', board
           %td= link_to 'Edit', edit_board_path(board)
           %td= link_to 'Destroy', board, :data => { confirm: 'Are you sure?' }, :method => :delete
