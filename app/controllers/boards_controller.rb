@@ -4,7 +4,7 @@ class BoardsController < ApplicationController
   respond_to :html
 
   def index
-    @boards = Board.all
+    @boards = Board.paginate(page: params[:page])
     respond_with(@boards)
   end
 
