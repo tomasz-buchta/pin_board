@@ -1,5 +1,8 @@
-%h1 Listing pins
-
+.page-header
+  %h1 Listing pins
+  = link_to new_board_pin_path(@board), :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Pin
 -@pins.each do |pin|
   =render pin
 
