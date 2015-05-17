@@ -4,6 +4,8 @@ class Board < ActiveRecord::Base
 
   validates_presence_of :title
 
+  self.per_page = 10
+
   def image(size=nil)
     pins.sample.image.url(size)
   end

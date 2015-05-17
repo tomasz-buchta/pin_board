@@ -2,7 +2,7 @@ require 'faker'
 
 #seed boards
 
-3.times do |n|
+15.times do |n|
   a = Board.new
   a.title = Faker::Commerce.department(1)
   a.description = Faker::Lorem.sentence
