@@ -1,11 +1,6 @@
 %p#notice= notice
 
-%p
-  %b Title:
-  = @pin.title
-%p
-  %b Description:
-  = @pin.description
+=render @pin
 
 = link_to 'Edit', edit_board_pin_path(@board,@pin)
 \|
