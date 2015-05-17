@@ -3,7 +3,8 @@
   = link_to new_board_pin_path(@board), :class => 'btn btn-primary' do
     %span.glyphicon.glyphicon-plus
     New Pin
--@pins.each do |pin|
-  =render pin
+#pins-container
+  -@pins.each do |pin|
+    =render pin
 .pagination
   =will_paginate @pins

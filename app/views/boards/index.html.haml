@@ -3,9 +3,9 @@
     %span.glyphicon.glyphicon-plus
     New Board
 
-
-.boards
-  -@boards.each do |board|
-    =render board
+#boards-container
+  .boards
+    -@boards.each do |board|
+      =render board
 .pagination
   =will_paginate @boards
