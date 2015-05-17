@@ -1,0 +1,5 @@
+.board
+  =link_to board_pins_path(board) do
+    .title= board.title
+    .image=image_tag board.image(:medium)
+    .description= board.description

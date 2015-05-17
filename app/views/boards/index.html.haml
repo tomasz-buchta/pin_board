@@ -2,23 +2,8 @@
   = link_to new_board_path, :class => 'btn btn-primary' do
     %span.glyphicon.glyphicon-plus
     New Board
-  %h1 Listing boards
 
-.table-responsive
-  %table.table.table-striped.table-bordered.table-hover
-    %thead
-      %tr
-        %th Title
-        %th description
-        %th
-        %th
-        %th
 
-    %tbody
-      - @boards.each do |board|
-        %tr
-          %td= link_to board.title,board_pins_path(board.id)
-          %td= board.description
-          %td= link_to 'Show', board
-          %td= link_to 'Edit', edit_board_path(board)
-          %td= link_to 'Destroy', board, :data => { confirm: 'Are you sure?' }, :method => :delete
+.boards
+  -@boards.each do |board|
+    =render board
