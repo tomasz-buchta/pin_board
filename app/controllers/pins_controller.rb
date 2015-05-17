@@ -5,7 +5,7 @@ class PinsController < ApplicationController
   respond_to :html
 
   def index
-    @pins = Pin.all
+    @pins = Pin.paginate(page: params[:page])
     respond_with(@board,@pins)
   end
 

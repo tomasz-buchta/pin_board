@@ -2,6 +2,8 @@ class Pin < ActiveRecord::Base
 
   belongs_to :board
 
+  self.per_page = 15
+
   validates_presence_of :title
   has_attached_file :image,
                     :styles => {
