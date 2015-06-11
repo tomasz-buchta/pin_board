@@ -23,6 +23,7 @@ class PinsController < ApplicationController
 
   def create
     @pin = Pin.new(pin_params)
+    @pin.board = @board
     @pin.save
     respond_with(@board,@pin)
   end
