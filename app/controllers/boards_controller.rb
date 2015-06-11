@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:new,:edit,:destroy,:update]
   respond_to :html
 
   def index
@@ -22,6 +22,7 @@ class BoardsController < ApplicationController
 
   def create
     @board = Board.new(board_params)
+    @board.user = current_user
     @board.save
     respond_with(@board)
   end
