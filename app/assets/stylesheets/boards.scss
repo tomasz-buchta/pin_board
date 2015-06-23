@@ -1,8 +1,9 @@
 .board {
   width: 400px;
-  height: 400px;
   margin-top: 10px;
   margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
   .title {
     padding: 10px;
     font-size: 28px;
