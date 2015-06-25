@@ -2,13 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Pin, :type => :model do
 
-  context 'valid attributes' do
-    let(:pin) {FactoryGirl.build(:pin)}
-
-    it {should validate_presence_of(:title)}
-    it {should have_attached_file(:image)}
-    it {should validate_attachment_presence(:image)}
-  end
+  it {should validate_presence_of(:title)}
+  it {should have_attached_file(:image)}
+  it {should validate_attachment_presence(:image)}
+  it {should validate_presence_of(:user)}
 
   context 'without title' do
     let(:pin) {FactoryGirl.build(:pin,:without_title)}

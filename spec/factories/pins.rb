@@ -6,6 +6,7 @@ FactoryGirl.define do
     image_file_name {'test.png'}
     image_content_type {'image/png'}
     image_file_size {1024}
+    user
 
     trait :without_title do
       title ''

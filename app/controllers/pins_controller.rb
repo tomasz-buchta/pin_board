@@ -1,6 +1,7 @@
 class PinsController < ApplicationController
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
   before_action :set_board
+  before_action :authenticate_user!, only: [:edit,:update,:new,:destroy]
 
   respond_to :html
 
@@ -15,6 +16,7 @@ class PinsController < ApplicationController
 
   def new
     @pin = Pin.new
+    @pin.board = @board
     respond_with(@board,@pin)
   end
 
@@ -24,6 +26,7 @@ class PinsController < ApplicationController
   def create
     @pin = Pin.new(pin_params)
     @pin.board = @board
+    @pin.user = current_user
     @pin.save
     respond_with(@board,@pin)
   end
@@ -48,6 +51,6 @@ class PinsController < ApplicationController
     end
 
     def pin_params
-      params.require(:pin).permit(:title, :description,:image)
+      params.require(:pin).permit(:title, :description,:image,:user)
     end
 end
