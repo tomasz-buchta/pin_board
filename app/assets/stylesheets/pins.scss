@@ -2,11 +2,13 @@
   width: 400px;
   margin-top: 10px;
   margin-bottom: 10px;
-  border-radius: 5px;
+  border-radius: $pin-border-radius;
   background-color: #f9f9f9;
   .title {
+    margin-top: 5px;
+    margin-bottom: 5px;
     text-align: center;
-    font-size: 18px;
+    font-size: 22px;
     padding-bottom: 3px;
     color: #222222;
   }
