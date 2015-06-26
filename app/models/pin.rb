@@ -1,10 +1,12 @@
 class Pin < ActiveRecord::Base
 
   belongs_to :board
+  belongs_to :user
 
   self.per_page = 15
 
   validates_presence_of :title
+  validates_presence_of :user
   has_attached_file :image,
                     :styles => {
                         medium: '400x400',

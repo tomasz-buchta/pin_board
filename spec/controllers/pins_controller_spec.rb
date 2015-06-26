@@ -10,9 +10,11 @@ RSpec.describe PinsController, :type => :controller do
 
   let(:invalid_attributes) {FactoryGirl.attributes_for(:pin,title: '')}
 
-  let(:valid_attributes) {FactoryGirl.attributes_for(:pin)}
+  let(:valid_attributes) {FactoryGirl.attributes_for(:pin,user_id: 1)}
 
   let(:valid_session) { {} }
+
+  login_user
 
   describe "GET index" do
     it "assigns all pins as @pins" do
@@ -78,7 +80,7 @@ RSpec.describe PinsController, :type => :controller do
   describe "PUT update" do
     describe "with valid params" do
       let(:new_attributes) {
-        FactoryGirl.attributes_for(:pin,title: 'updated title')
+        FactoryGirl.attributes_for(:pin,title: 'updated title',user_id: 1)
       }
 
       it "updates the requested pin" do
@@ -93,7 +95,7 @@ RSpec.describe PinsController, :type => :controller do
       end
 
       it "redirects to the pin" do
-        pin = Pin.create! valid_attributes
+        pin = FactoryGirl.create(:pin)
         put :update, {board_id: board.id,:id => pin.to_param, :pin => valid_attributes}, valid_session
         expect(response).to redirect_to(board_pin_url(board.id,pin))
       end
@@ -101,13 +103,13 @@ RSpec.describe PinsController, :type => :controller do
 
     describe "with invalid params" do
       it "assigns the pin as @pin" do
-        pin = Pin.create! valid_attributes
+        pin = FactoryGirl.create(:pin)
         put :update, {board_id: board.id,:id => pin.to_param, :pin => invalid_attributes}, valid_session
         expect(assigns(:pin)).to eq(pin)
       end
 
       it "re-renders the 'edit' template" do
-        pin = Pin.create! valid_attributes
+        pin = FactoryGirl.create(:pin)
         put :update, {board_id: board.id,:id => pin.to_param, :pin => invalid_attributes}, valid_session
         expect(response).to render_template("edit")
       end
@@ -116,14 +118,14 @@ RSpec.describe PinsController, :type => :controller do
 
   describe "DELETE destroy" do
     it "destroys the requested pin" do
-      pin = Pin.create! valid_attributes
+      pin = FactoryGirl.create(:pin)
       expect {
         delete :destroy, {board_id: board.id,:id => pin.to_param}, valid_session
       }.to change(Pin, :count).by(-1)
     end
 
     it "redirects to the pins list" do
-      pin = Pin.create! valid_attributes
+      pin = FactoryGirl.create(:pin)
       delete :destroy, {board_id: board.id,:id => pin.to_param}, valid_session
       expect(response).to redirect_to(board_pins_url(board.id))
     end
