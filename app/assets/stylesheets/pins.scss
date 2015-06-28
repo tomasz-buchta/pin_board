@@ -1,9 +1,12 @@
 .pin {
-  width: 400px;
+  width: 300px;
   margin-top: 10px;
   margin-bottom: 10px;
   border-radius: $pin-border-radius;
   background-color: #f9f9f9;
+  img {
+    width: 300px;
+  }
   .title {
     margin-top: 5px;
     margin-bottom: 5px;
