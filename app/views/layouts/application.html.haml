@@ -29,6 +29,18 @@
           %ul.nav.navbar-nav
             %li.active
               %a{:href => "#{root_path}"} Home
+          %ul.nav.navbar-nav.pull-right
+            - unless current_user
+              %li
+                .navbar-btn
+                  =link_to 'Sign In', new_user_session_path, class: 'btn btn-default'
+            - else
+              %li=link_to current_user.name, "#"
+              %li.dropdown
+                %a.dropdown-toggle{'data-toggle':'dropdown','role':'button',href:'#'}
+                  %span.caret
+                  %ul.dropdown-menu
+                    %li=link_to 'Logout',destroy_user_session_path, method: :delete
     .container-fluid
       .row
         .col-md-9
