@@ -1,5 +1,6 @@
 ready = ->
   container = $('#boards-container')
+
   container.imagesLoaded(->
     container.masonry({
       itemSelector: '.board',
@@ -7,5 +8,19 @@ ready = ->
     })
   )
 
-$(document).ready(ready)
-$(document).on('page:load', ready)
+  container.infinitescroll({
+      navSelector: '.pagination'
+      nextSelector: '.pagination a.next_page'
+      itemSelector: '.board'
+    },
+    (newElements)->
+      newElems = $(newElements).css({opacity: 0});
+      newElems.imagesLoaded(
+        ->
+          newElems.animate({opacity: 1})
+          container.masonry('appended',newElems,true)
+      )
+  )
+$(document).ready(ready);
+$(document).on('page:load', ready);
+$(window).load(ready)

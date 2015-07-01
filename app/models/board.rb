@@ -5,7 +5,7 @@ class Board < ActiveRecord::Base
 
   validates_presence_of :title
   validates_presence_of :user
-  self.per_page = 10
+  self.per_page = 15
 
   def image(size=nil)
     unless pins.empty?
