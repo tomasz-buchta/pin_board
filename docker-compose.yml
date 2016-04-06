@@ -11,6 +11,10 @@ services:
       - pin_board-postgres:/var/lib/postgresql/data
   elasticsearch:
     image: elasticsearch
+#    command: elasticsearch -Des.network.host=0.0.0.0
+#    ports:
+#      - '9200:9200'
+#      - '9300:9300'
   web:
     build: .
     links:
